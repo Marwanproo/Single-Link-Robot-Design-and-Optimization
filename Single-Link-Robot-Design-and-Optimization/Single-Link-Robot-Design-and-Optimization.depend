@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1745603957 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\main.cpp
+	<iostream>
+	"matrials.h"
+	"matrials.c"
+	<string>
+
+1745603898 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.h
+	<iostream>
+	<string>
+
+1745594172 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\material.h
+	<iostream>
+	<string>
+
+1745603957 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.c
+	<iostream>
+	<string>
+	"matrials.h"
+	<stdio.h>
+
