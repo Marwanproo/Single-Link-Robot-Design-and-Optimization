@@ -1,21 +1,47 @@
 # depslib dependency file v1.0
-1745603957 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\main.cpp
+1745683818 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\main.cpp
 	<iostream>
 	"matrials.h"
-	"matrials.c"
+	"matrials.cpp"
 	<string>
+	<vector>
+	"Functions.h"
+	"Functions.cpp"
+	"link.h"
 
-1745603898 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.h
+1745683818 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.h
 	<iostream>
 	<string>
+	<vector>
 
 1745594172 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\material.h
 	<iostream>
 	<string>
 
-1745603957 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.c
+1745667371 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.c
 	<iostream>
 	<string>
+	<vector>
 	"matrials.h"
 	<stdio.h>
+
+1745680925 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.cpp
+	<iostream>
+	<string>
+	<vector>
+	"matrials.h"
+	<stdio.h>
+
+1745682135 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\functions.h
+	<iostream>
+	<string>
+	<vector>
+
+1745682173 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\functions.cpp
+	<iostream>
+	<string>
+	<vector>
+	<cmath>
+
+1745683818 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\link.h
 
