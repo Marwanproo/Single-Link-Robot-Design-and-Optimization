@@ -11,18 +11,20 @@ class Matrial {
     public:
         Matrial();
         Matrial(string name,float yieldstrength, float density,int id);
-        string get_Name();
-        float get_Yieldstrength();
-        float get_Density();
-        int get_Id();
+        string get_Name() const;
+        float get_Yieldstrength() const;
+        float get_Density() const;
+        int get_Id() const;
         void set_Name(string n);
         void set_Yieldstrength(float y);
         void set_Density(float d);
         void set_Id(int id);
+        bool check_material() const;
     private:
         string Name;
         float Yieldstrength;
         float Density;
         int Id;
 };
+
 #endif // MATRIALS_H_INCLUDED

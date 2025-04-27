@@ -3,21 +3,24 @@
 class Link{
     public:
         Link();
-        Link(float l , float h , float b);
-        Link(float l,float r);
-        float get_length();
-        float get_high();
-        float get_width();
-        float get_radius();
-        void set_length();
-        void set_high();
-        void set_width();
-        void set_radius();
+        Link(float l , float h , float b , float r);
+        float get_length() const;
+        float get_high() const;
+        float get_width() const;
+        float get_radius() const;
+        float get_mass() const;
+        void set_length(float l);
+        void set_high(float h);
+        void set_width(float b) ;
+        void set_radius(float r);
+        void set_mass(float m);
+        bool check_Link() const;
     private:
         float length;
         float high;
         float width;
         float radius;
+        float mass;
 };
 
 

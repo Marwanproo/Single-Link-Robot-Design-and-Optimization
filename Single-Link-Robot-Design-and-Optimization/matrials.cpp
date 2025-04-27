@@ -13,29 +13,39 @@ Matrial::Matrial(){
 }
 Matrial::Matrial(string name,float yieldstrength,float density,int id)
 : Name(name), Yieldstrength(yieldstrength), Density(density) , Id(id){}
-string Matrial::get_Name(){
+string Matrial::get_Name() const{
     return Name;
 }
-float Matrial::get_Yieldstrength(){
+float Matrial::get_Yieldstrength() const{
     return Yieldstrength;
 }
-float Matrial::get_Density(){
+float Matrial::get_Density() const{
     return Density;
 }
-int Matrial::get_Id(){
+int Matrial::get_Id() const{
     return Id;
 }
 void Matrial::set_Name(string n){
     Name = n;
-};
+}
 void Matrial::set_Yieldstrength(float y){
     Yieldstrength = y;
-};
+}
 void Matrial::set_Density(float d){
     Density = d;
-};
+}
 void Matrial::set_Id(int id){
     Id = id ;
+}
+bool Matrial::check_material() const{
+    bool valid;
+    if(Yieldstrength <= 0 || Density <= 0){
+        cout << "Not valid parameter.." <<endl;
+        valid = false;
+    }
+    if(Density > 22.5){
+
+    }
 }
 // materials data base
 
