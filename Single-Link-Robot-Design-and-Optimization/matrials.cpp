@@ -38,18 +38,13 @@ void Matrial::set_Id(int id){
     Id = id ;
 }
 bool Matrial::check_material() const{
-    bool valid;
+    bool valid = true;
     if(Yieldstrength <= 0 || Density <= 0){
         cout << "Not valid parameter.." <<endl;
-        valid = false;
-    }
-    if(Density > 22.5){
-
-    }
+        valid = false;}
+        return valid;
 }
 // materials data base
-
-
 Matrial materials[10]={
     Matrial("Cast iron",130,7.3,1),
     Matrial("copper nickel",130,8.94,2),
