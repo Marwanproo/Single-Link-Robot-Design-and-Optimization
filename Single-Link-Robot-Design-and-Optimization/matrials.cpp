@@ -38,10 +38,11 @@ void Matrial::set_Id(int id){
     Id = id ;
 }
 bool Matrial::check_material() const{
-    bool valid = true;
+    bool valid = false;
     if(Yieldstrength <= 0 || Density <= 0){
         cout << "Not valid parameter.." <<endl;
-        valid = false;}
+        valid = true;
+        }
         return valid;
 }
 // materials data base
