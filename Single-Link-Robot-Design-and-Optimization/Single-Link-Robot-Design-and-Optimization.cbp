@@ -45,6 +45,7 @@
 		<Unit filename="Link.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="gears.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="matrials.cpp">
 			<Option target="&lt;{~None~}&gt;" />
@@ -52,6 +53,8 @@
 		<Unit filename="matrials.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="motors.h" />
+		<Unit filename="motorss.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

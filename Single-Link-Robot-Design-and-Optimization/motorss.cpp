@@ -62,5 +62,5 @@ public:
     double getMass() const { return mass; }
     double getDiameter() const { return diameter; }
     double getWidth() const { return width; }
-    double getCost() const { return�cost;�}
+    double getCost() const { return cost;}
 };

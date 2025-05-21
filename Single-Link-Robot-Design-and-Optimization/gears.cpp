@@ -82,6 +82,44 @@ public:
         Gearbox best = findBestGearbox(validGearboxes);
         best.display();
     }
+
+string set_name(string n)
+    {
+        name=n;
+        return name;
+    }
+double set_ratio(double r)
+    {
+        ratio=r;
+        return ratio;
+    }
+double set_eff(double e)
+    {
+        efficiency=e;
+        return efficiency;
+    }
+double set_mass (double m)
+    {
+        mass=m;
+        return mass;
+    }
+double set_diameter (double d)
+    {
+        diameter=d;
+        return diameter;
+    }
+double set_width (double w)
+    {
+        width=w;
+        return width;
+    }
+ double set_cost (double c)
+    {
+        cost=c;
+        return cost;
+    }
+
+
 };
 
 

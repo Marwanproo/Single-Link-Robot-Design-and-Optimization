@@ -56,3 +56,67 @@
 	<vector>
 	<stdio.h>
 
+1747761782 source:c:\users\user\mypro\single-link-robot-design-and-optimization\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"matrials.h"
+	"matrials.cpp"
+	"Functions.h"
+	"Functions.cpp"
+	"Link.h"
+	"Link.cpp"
+	"gears.cpp"
+
+1747086751 c:\users\user\mypro\single-link-robot-design-and-optimization\matrials.h
+	<iostream>
+	<string>
+	<vector>
+
+1747729949 c:\users\user\mypro\single-link-robot-design-and-optimization\matrials.cpp
+	<iostream>
+	<string>
+	<vector>
+	"matrials.h"
+	<stdio.h>
+
+1747758864 c:\users\user\mypro\single-link-robot-design-and-optimization\functions.h
+	<iostream>
+	<string>
+	<vector>
+	"Link.h"
+	"matrials.h"
+
+1747086751 c:\users\user\mypro\single-link-robot-design-and-optimization\link.h
+
+1747754950 c:\users\user\mypro\single-link-robot-design-and-optimization\functions.cpp
+	<iostream>
+	<string>
+	<vector>
+	<cmath>
+	"Link.h"
+	"matrials.h"
+
+1747729949 c:\users\user\mypro\single-link-robot-design-and-optimization\link.cpp
+	<iostream>
+	<string>
+	<vector>
+	<stdio.h>
+
+1747762220 source:c:\users\user\mypro\single-link-robot-design-and-optimization\gears.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<cmath>
+
+1747759740 source:c:\users\user\mypro\single-link-robot-design-and-optimization\motorss.cpp
+	<iostream>
+	<string>
+	<vector>
+
+1747761142 c:\users\user\mypro\single-link-robot-design-and-optimization\gears.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<cmath>
+
