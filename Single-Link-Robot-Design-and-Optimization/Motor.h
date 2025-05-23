@@ -23,10 +23,6 @@ public:
     void setDiameter(double d);
     void setWidth(double w);
     void setCost(double c);
-    bool meetsRequirements(double requiredTorque, double requiredSpeed) const;
-    bool isBetterThan(const Motor& other, bool prioritizeMass = false,
-                      bool prioritizeDiameter = false, bool prioritizeWidth = false) const;
-
     string modelName;
     double torque;
     double speed;
