@@ -93,3 +93,87 @@
 	<string>
 	<vector>
 
+1748017534 source:c:\users\user\mypro\single-link-robot-design-and-optimization\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"matrials.h"
+	"matrials.cpp"
+	"Functions.h"
+	"Functions.cpp"
+	"Link.h"
+	"Link.cpp"
+	"motors.h"
+	"motorss.cpp"
+	"gear.h"
+	"gear.cpp"
+
+1747086751 c:\users\user\mypro\single-link-robot-design-and-optimization\matrials.h
+	<iostream>
+	<string>
+	<vector>
+
+1747729949 c:\users\user\mypro\single-link-robot-design-and-optimization\matrials.cpp
+	<iostream>
+	<string>
+	<vector>
+	"matrials.h"
+	<stdio.h>
+
+1748015594 c:\users\user\mypro\single-link-robot-design-and-optimization\functions.h
+	<iostream>
+	<string>
+	<vector>
+	"Link.h"
+	"matrials.h"
+
+1747086751 c:\users\user\mypro\single-link-robot-design-and-optimization\link.h
+
+1748015594 c:\users\user\mypro\single-link-robot-design-and-optimization\functions.cpp
+	<iostream>
+	<string>
+	<vector>
+	<cmath>
+	"Link.h"
+	"matrials.h"
+	<limits>
+
+1748015594 c:\users\user\mypro\single-link-robot-design-and-optimization\link.cpp
+	<iostream>
+	<string>
+	<vector>
+	"Link.h"
+
+1748015594 c:\users\user\mypro\single-link-robot-design-and-optimization\motors.h
+	<string>
+	<vector>
+
+1748015594 c:\users\user\mypro\single-link-robot-design-and-optimization\motorss.cpp
+	<iostream>
+	<string>
+	<vector>
+	"motors.h"
+	<stdio.h>
+
+1748015594 c:\users\user\mypro\single-link-robot-design-and-optimization\gears -1.h
+	<string>
+	<vector>
+
+1748015594 c:\users\user\mypro\single-link-robot-design-and-optimization\gears.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<cmath>
+	"Gears -1.h"
+	<stdio.h>
+
+1748018009 c:\users\user\mypro\single-link-robot-design-and-optimization\gear.h
+	<string>
+	<vector>
+
+1748018006 c:\users\user\mypro\single-link-robot-design-and-optimization\gear.cpp
+	<iostream>
+	<vector>
+	<cmath>
+	"gear.h"
+

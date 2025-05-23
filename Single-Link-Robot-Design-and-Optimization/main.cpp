@@ -7,16 +7,16 @@
 #include "Functions.cpp"
 #include "Link.h"
 #include "Link.cpp"
-#include "motors.h"
-#include "motorss.cpp"
-#include "Gears -1.h"
-#include "gears.cpp"
+#include "Motor.h"
+#include "Motor.cpp"
+#include "gear.h"
+#include "gear.cpp"
 
 using namespace std;
 int main()
 {
     const double inf = 1.0 / 0.0;
-    /*Link* link=new Link();
+    Link* link=new Link();
     Matrial Selected_material;
     int shape_selector;
     int material_Selector;
@@ -84,7 +84,7 @@ int main()
     link->set_max_angular_acc(checkValidation(1,inf));
     // stress calculations
     checkStress(Selected_material,*link);
-    cout << "the math"<<link->get_mass()<<" "<<endl;*/
+    cout << "the math"<<link->get_mass()<<" "<<endl;
 
     // -------------------- Part 2 ----------------------------
     vector<Motor> motors;
@@ -145,7 +145,6 @@ int main()
         Gearbox G1(n,rat,e,m,d,w,c);
         gearboxes.push_back(G1);
     }
-    cout << motors[0].getModelName()<<endl;
-    cout << gearboxes[0].get_name()<<endl;
+
     return 0;
 }
