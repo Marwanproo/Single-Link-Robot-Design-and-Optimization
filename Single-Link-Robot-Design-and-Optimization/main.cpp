@@ -7,17 +7,19 @@
 #include "Functions.cpp"
 #include "Link.h"
 #include "Link.cpp"
-#include "gears.cpp"
+#include "motors.h"
 #include "motorss.cpp"
+#include "Gears -1.h"
+#include "gears.cpp"
+
 using namespace std;
 int main()
 {
-    double inf = 1.0 / 0.0;
-    Link* link=new Link();
+    const double inf = 1.0 / 0.0;
+    /*Link* link=new Link();
     Matrial Selected_material;
     int shape_selector;
     int material_Selector;
-    float mp,max_acc,new_Yieldstrength,new_Density;
     string new_Name;
         cout << "please select a cross-section shape \n" <<" (1) for rectangular \n (2) for circular" <<endl;
         shape_selector = checkValidation(1,2);
@@ -76,54 +78,74 @@ int main()
 
     Selected_material = materials[material_Selector-1];
     // Get  pay load math and maximum angular acceleration
-    do
-    {
-        cout << "Please enter the pay load mass (in Kg) ...";
-        link->set_payload_m(checkValidation(1,inf));
-    }
-    while(mp <= 0 );
+    cout << "Please enter the pay load mass (in Kg) ...";
+    link->set_payload_m(checkValidation(1,inf));
     cout << "\n Please enter the maximum angular acceleration (in mm/s^2) ...";
     link->set_max_angular_acc(checkValidation(1,inf));
     // stress calculations
     checkStress(Selected_material,*link);
-    cout << "the math"<<link->get_mass()<<" ";
+    cout << "the math"<<link->get_mass()<<" "<<endl;*/
 
     // -------------------- Part 2 ----------------------------
-
-   string motor_name; double motor_torque; double motor_speed; double motor_mass; double motor_diameter; double motor_width; double motor_cost;
-    Motor M1(motor_name,motor_torque,motor_speed,motor_mass,motor_diameter,motor_width,motor_cost);
-    cout << "enter the motor name: " <<endl;
-    cin>> motor_name;
-     cout << "enter the motor torque: " <<endl;
-    cin>> motor_torque;
-     cout << "enter the motor speed " <<endl;
-    cin>> motor_speed;
-     cout << "enter the motor mass: " <<endl;
-    cin>> motor_mass;
-     cout << "enter the motor diameter: " <<endl;
-    cin>> motor_diameter;
-     cout << "enter the motor width: " <<endl;
-    cin>> motor_width;
-     cout << "enter the motor cost: " <<endl;
-    cin>> motor_cost;
+    vector<Motor> motors;
+    cout << "How many motors do you want to enter sir?"<<endl;
+    int number_motors;
+    cin >> number_motors;
+    string motor_name; double motor_torque; double motor_speed; double motor_mass; double motor_diameter; double motor_width; double motor_cost;
+    for (int i =0 ; i < number_motors ; i++) {
+        cout << "Enter the motor name: " <<endl;
+        cin >> motor_name;
+         cout << "Enter the motor torque: " <<endl;
+        motor_torque = checkValidation(1,inf);
+         cout << "Enter the motor speed:" <<endl;
+        motor_speed = checkValidation(1,inf);
+         cout << "Enter the motor mass (in Kg): " <<endl;
+        motor_mass = checkValidation(1,inf);
+         cout << "Enter the motor diameter(in millimeter): " <<endl;
+        motor_diameter = checkValidation(1,inf);
+         cout << "Enter the motor width( in millimeter): " <<endl;
+        motor_width = checkValidation(1,inf);
+         cout << "Enter the motor cost (in millimeter): " <<endl;
+        motor_cost = checkValidation(1,inf);
+        if(i != number_motors-1){
+            cout << " ////////////////// The next Motor ////////////////// " <<endl;
+        }
+        Motor M1(motor_name,motor_torque,motor_speed,motor_mass,motor_diameter,motor_width,motor_cost);
+        motors.push_back(M1);
+    }
 
 /////////////////////////////////////////////////////////////////////////////////////////
-
+    vector<Gearbox> gearboxes;
+    cout << "How many Gearboxes do you want to enter sir?"<<endl;
+    int number_Gearbox;
+    cin >> number_Gearbox;
     string n; double rat; double e; double m; double d; double w; double c;
-    cout << "enter the gearbox name: " <<endl;
-    cin>> n;
-     cout << "enter the gearbox ratio: " <<endl;
-    cin>> rat;
-     cout << "enter the gearbox effeciency " <<endl;
-    cin>> e;
-     cout << "enter the gearbox mass: " <<endl;
-    cin>> m;
-     cout << "enter the gearbox diameter: " <<endl;
-    cin>> d;
-     cout << "enter the gearbox width: " <<endl;
-    cin>> w;
-     cout << "enter the gearbox cost: " <<endl;
-    cin>> c;
-    Gearbox G1(n,rat,e,m,d,w,c);
+    for(int i =1 ; i <= number_Gearbox ; i++){
+        cout << "Enter the gearbox name: " <<endl;
+        cin >> n;
+        cout << "Enter the gearbox ratio: " <<endl;
+        rat = checkValidation(0,1);
+        cout << "Enter the gearbox effeciency:" <<endl;
+        e = checkValidation(0,100);
+        if(e > 1){
+            e/=100;
+            cout << e<<endl;
+        }
+        cout << "Enter the gearbox mass (in Kg): " <<endl;
+        m = checkValidation(1,inf);
+        cout << "Enter the gearbox diameter (in millimeter): " <<endl;
+        d = checkValidation(1,inf);
+        cout << "Enter the gearbox width  (in millimeter): " <<endl;
+        w = checkValidation(1,inf);
+        cout << "Enter the gearbox cost: " <<endl;
+        c = checkValidation(1,inf);
+        if(i != number_Gearbox){
+            cout << " ////////////////// The next Gearbox ////////////////// " <<endl;
+        }
+        Gearbox G1(n,rat,e,m,d,w,c);
+        gearboxes.push_back(G1);
+    }
+    cout << motors[0].getModelName()<<endl;
+    cout << gearboxes[0].get_name()<<endl;
     return 0;
 }

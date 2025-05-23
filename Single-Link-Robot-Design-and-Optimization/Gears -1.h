@@ -15,7 +15,7 @@ public:
     double get_width() const;
     double get_cost() const;
     double get_cost_function() const;
-    double calculate_cost() const;
+    double calculateCost() const;
     void set_name(string n);
     void set_ratio(double r);
     void set_efficiency(double e);
@@ -23,16 +23,16 @@ public:
     void set_diameter(double d);
     void set_width(double w);
     void set_cost(double c);
-    vector<Gearbox> filter_by_efficiency(const vector<Gearbox>& gearboxes, double min_efficiency);
-    vector<Gearbox> filter_by_ratio(const vector<Gearbox>& gearboxes, double required_ratio);
-    Gearbox find_best_gearbox(const vector<Gearbox>& gearboxes);
+    vector<Gearbox> filterByEfficiency(const vector<Gearbox>& gearboxes, double minEfficiency) const;
+    vector<Gearbox> filterByRatio(const vector<Gearbox>& gearboxes, double required_ratio) const;
+    Gearbox findBestGearbox(const vector<Gearbox>& gearboxes) const;
     void display() const;
-    void select_and_display_gearbox(const vector<Gearbox>& all_gearboxes,
+    void selectAndDisplayGearbox(const vector<Gearbox>& all_gearboxes,
     double req_ratio,
     double min_efficiency);
 private:
     string name;
-    double ratio;
+    double _ratio;
     double efficiency;
     double mass;
     double diameter;

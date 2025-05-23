@@ -16,12 +16,8 @@ void checkStress(Matrial& m,Link& l)
     l.set_momentOfInertia();
     l.set_bendingMoment();
     l.set_max_stress();
-    cout << "the ratio " << ceil(l.get_max_stress()/m.get_Yieldstrength()) <<endl;
-    cout << " s_y " << m.get_Yieldstrength() <<endl;
-    cout << "the math" << l.get_mass()<<endl;
-    cout << "the bending moment is: " << l.get_bendingMoment()<<endl;
-    cout << "the I " << l.get_momentOfInertia()<<endl;
-    cout<< "the stress is: "<<l.get_max_stress()<<"    "<<endl;
+    cout << "The math" << l.get_mass()<<endl;
+    cout<< "The stress is: "<<l.get_max_stress()<<"    "<<endl;
     if(l.get_max_stress() > m.get_Yieldstrength())
     {
         while(l.get_max_stress() >= m.get_Yieldstrength())
@@ -44,19 +40,18 @@ void checkStress(Matrial& m,Link& l)
             l.set_max_stress();
         }
     }
-    cout << "the final length is: "<< l.get_length()<< " Millimeter"<<endl;
+    cout << "The final length is: "<< l.get_length()<< " Millimeter"<<endl;
     if(l.get_radius()==0.0)
     {
-        cout << "the final height is: "<< l.get_high()<< " Millimeter"<<endl;
-        cout << "the final width is: "<<l.get_width()<< " Millimeter"<<endl;
+        cout << "The final height is: "<< l.get_high()<< " Millimeter"<<endl;
+        cout << "The final width is: "<<l.get_width()<< " Millimeter"<<endl;
     }
     else
     {
-        cout << "the final radius is: "<<l.get_radius()<<  " Millimeter"<<endl;
+        cout << "The final radius is: "<<l.get_radius()<<  " Millimeter"<<endl;
     }
-    cout << "the bending moment is: " << l.get_bendingMoment()<<endl;
-    cout << "the I " << l.get_momentOfInertia()<<endl;
-    cout <<"the max stress is: "<< l.get_max_stress()<<" MPa"<<endl;
+    cout << "The math:" << l.get_mass()<<endl;
+    cout <<"The max stress is: "<< l.get_max_stress()<<" MPa"<<endl;
 }
 auto checkValidation(auto r1, auto r2)
 {
@@ -70,7 +65,7 @@ auto checkValidation(auto r1, auto r2)
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         if(var  < r1 || var > r2){
-            cout << "Invalid input please try again : ";
+            cout << "Invalid input please try again : " << "\a";
         }
     }
     while(var  < r1 || var > r2);

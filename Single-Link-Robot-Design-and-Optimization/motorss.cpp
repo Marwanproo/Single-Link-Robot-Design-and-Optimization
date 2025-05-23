@@ -1,96 +1,85 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "motors.h"
+#include <stdio.h>
 using namespace std;
-class Motor
+
+Motor::Motor(){}
+Motor::Motor(const string& name, double t, double s, double m, double d, double w, double c)
+    : modelName(name), torque(t), speed(s), mass(m), diameter(d), width(w), cost(c) {}
+/*void Motor::printInfo() const
 {
-private:
-    string modelName;
-    double torque;
-    double speed;
-    double mass;
-    double diameter;
-    double width;
-    double cost;
-    bool meetsRequirements(double requiredTorque, double requiredSpeed) const
-    {
-        return (torque >= requiredTorque) && (speed >= requiredSpeed);
-    }
-public:
-    Motor(const string& name, double t, double s, double m, double d, double w, double c = 0)
-        : modelName(name), torque(t), speed(s), mass(m), diameter(d), width(w), cost(c) {}
-    void printInfo() const
-    {
-        cout << "Model: " << modelName << endl
-             << "Torque: " << torque << " Nm" << endl
-             << "Speed: " << speed << " RPM" << endl
-             << "Mass: " << mass << " kg" << endl
-             << "Diameter: " << diameter << " mm" << endl
-             << "Width: " << width << " mm" << endl
-             << "Cost: $" << cost << endl;
-    }
-    double calculatePerformance() const
-    {
-        return torque * speed;
-    }
+    cout << "Model: " << modelName << endl
+         << "Torque: " << torque << " Nm" << endl
+         << "Speed: " << speed << " RPM" << endl
+         << "Mass: " << mass << " kg" << endl
+         << "Diameter: " << diameter << " mm" << endl
+         << "Width: " << width << " mm" << endl
+         << "Cost: $" << cost << endl;
+}*/
+/*double Motor::calculatePerformance() const
+{
+    return torque * speed;
+}*/
 
 
 
-    vector<Motor> filterCompatibleMotors(const vector<Motor>& motors,
-                                         double requiredTorque,
-                                         double requiredSpeed) const
+/*vector<Motor> Motor::filterMotors(const vector<Motor>& motors,
+        double requiredTorque,
+        double requiredSpeed) const
+{
+    vector<Motor> result;
+    for (const Motor& m : motors)
     {
-        vector<Motor> result;
-        for (const Motor& m : motors)
+        if (m.meetsRequirements(requiredTorque, requiredSpeed))
         {
-            if (m.meetsRequirements(requiredTorque, requiredSpeed))
-            {
-                result.push_back(m);
-            }
+            result.push_back(m);
         }
-        return result;
     }
+    return result;
+}*/
 
 
-    bool isLightweight(double thresholdMass) const
-    {
-        return mass <= thresholdMass;
-    }
+/*bool Motor::isLightweight(double thresholdMass) const
+{
+    return mass <= thresholdMass;
+}*/
 
-    void updateCost(double massCostFactor, double diameterCostFactor, double widthCostFactor)
-    {
-        cost = (mass * massCostFactor)
-               + (diameter * diameterCostFactor)
-               + (width * widthCostFactor);
-    }
+/*void Motor::updateCost(double massCostFactor, double diameterCostFactor, double widthCostFactor)
+{
+    cost = (mass * massCostFactor)
+           + (diameter * diameterCostFactor)
+           + (width * widthCostFactor);
+}*/
 
 
-    string getModel() const
-    {
-        return modelName;
-    }
-    double getTorque() const
-    {
-        return torque;
-    }
-    double getSpeed() const
-    {
-        return speed;
-    }
-    double getMass() const
-    {
-        return mass;
-    }
-    double getDiameter() const
-    {
-        return diameter;
-    }
-    double getWidth() const
-    {
-        return width;
-    }
-    double getCost() const
-    {
-        return cost;
-    }
-};
+string Motor::getModelName() const
+{
+    return modelName;
+}
+double Motor::getTorque() const
+{
+    return torque;
+}
+double Motor::getSpeed() const
+{
+    return speed;
+}
+double Motor::getMass() const
+{
+    return mass;
+}
+double Motor::getDiameter() const
+{
+    return diameter;
+}
+double Motor::getWidth() const
+{
+    return width;
+}
+double Motor::getCost() const
+{
+    return cost;
+}
+

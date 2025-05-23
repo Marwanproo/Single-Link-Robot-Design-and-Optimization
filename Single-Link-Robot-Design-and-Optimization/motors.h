@@ -3,10 +3,12 @@
 #include <string>
 #include <vector>
 using namespace std;
-class Motor {
+class Motor
+{
 public:
+
     Motor();
-    Motor(const string& name, double t, double s, double m, double d, double w, double c = 0);
+    Motor(const string& name, double t, double s, double m, double d, double w, double c);
     string getModelName() const;
     double getTorque() const;
     double getSpeed() const;
@@ -23,16 +25,8 @@ public:
     void setCost(double c);
     bool meetsRequirements(double requiredTorque, double requiredSpeed) const;
     bool isBetterThan(const Motor& other, bool prioritizeMass = false,
-    bool prioritizeDiameter = false, bool prioritizeWidth = false) const;
-   vector<Motor> filterMotors(const vector<Motor>& motors,
-    double requiredTorque,
-    double requiredSpeed);
-   Motor findBestMotor(const vector<Motor>& motors,
-    bool prioritizeMass = false,
-    bool prioritizeDiameter = false,
-    bool prioritizeWidth = false);
-private:
-    double calculateCostFunction(bool prioritizeMass, bool prioritizeDiameter, bool prioritizeWidth) const;
+                      bool prioritizeDiameter = false, bool prioritizeWidth = false) const;
+
     string modelName;
     double torque;
     double speed;

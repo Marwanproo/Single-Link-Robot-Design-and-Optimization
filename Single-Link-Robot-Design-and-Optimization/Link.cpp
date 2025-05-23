@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <stdio.h>
-
+#include "Link.h"
 using namespace std;
 Link::Link(){};
 Link::Link(float l , float h , float b , float r,float m){
