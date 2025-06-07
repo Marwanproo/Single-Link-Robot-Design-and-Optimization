@@ -38,6 +38,9 @@ float Link::get_bendingMoment()const{
 float Link::get_max_stress() const{
     return max_stress;
 }
+float Link::get_torque_req()const{
+    return torque_req;
+}
 void Link::set_length(float l){
     length = l;
 }
@@ -115,6 +118,12 @@ void Link::set_max_stress(){
             max_stress = (bendingMoment*radius)/momentOfInertia;
     }
 }
+void Link::set_torque_req(){
+    torque_req = (mass*g*length/2)+(payload_m*g*length)+(mass*pow(length/2,2)*max_angular_acc)+(payload_m*pow(length,2)*max_angular_acc);
+}
+/*void Link::set_speed_req()const{
+    //speed_req =
+}*/
 
 
 

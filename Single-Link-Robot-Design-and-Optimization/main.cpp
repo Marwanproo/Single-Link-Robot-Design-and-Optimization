@@ -8,13 +8,11 @@
 #include "Link.h"
 #include "Link.cpp"
 #include "Motor.h"
-#include "Motor.cpp"
 #include "gear.h"
-#include "gear.cpp"
-
+#include "MotorGearboxCompination.h"
+#include <algorithm>
 using namespace std;
-int main()
-{
+int main(){
     const double inf = 1.0 / 0.0;
     Link* link=new Link();
     Matrial Selected_material;
@@ -23,10 +21,8 @@ int main()
     string new_Name;
         cout << "please select a cross-section shape \n" <<" (1) for rectangular \n (2) for circular" <<endl;
         shape_selector = checkValidation(1,2);
-         do
-           {
-            if (shape_selector == 1)
-            {
+         do{
+            if (shape_selector == 1){
                 cout <<"please enter the initial dimensions (in millimeter)."<<endl;
                 cout <<"the length:";
                 link->set_length(checkValidation(1,inf));
@@ -84,10 +80,12 @@ int main()
     link->set_max_angular_acc(checkValidation(1,inf));
     // stress calculations
     checkStress(Selected_material,*link);
-    cout << "the math"<<link->get_mass()<<" "<<endl;
+    cout << "the mass"<<link->get_mass()<<" "<<endl;
+    cout << "the requierd torque" << link->get_torque_req()<<endl;
 
     // -------------------- Part 2 ----------------------------
     vector<Motor> motors;
+    vector<Motor> motors_bycost;
     cout << "How many motors do you want to enter sir?"<<endl;
     int number_motors;
     cin >> number_motors;
@@ -96,7 +94,7 @@ int main()
         cout << "Enter the motor name: " <<endl;
         cin >> motor_name;
          cout << "Enter the motor torque: " <<endl;
-        motor_torque = checkValidation(1,inf);
+        motor_torque = checkValidation(0,inf);
          cout << "Enter the motor speed:" <<endl;
         motor_speed = checkValidation(1,inf);
          cout << "Enter the motor mass (in Kg): " <<endl;
@@ -106,14 +104,12 @@ int main()
          cout << "Enter the motor width( in millimeter): " <<endl;
         motor_width = checkValidation(1,inf);
          cout << "Enter the motor cost (in millimeter): " <<endl;
-        motor_cost = checkValidation(1,inf);
         if(i != number_motors-1){
             cout << " ////////////////// The next Motor ////////////////// " <<endl;
         }
-        Motor M1(motor_name,motor_torque,motor_speed,motor_mass,motor_diameter,motor_width,motor_cost);
+        Motor M1(motor_name,motor_torque,motor_speed,motor_mass,motor_diameter,motor_width);
         motors.push_back(M1);
     }
-
 /////////////////////////////////////////////////////////////////////////////////////////
     vector<Gearbox> gearboxes;
     cout << "How many Gearboxes do you want to enter sir?"<<endl;
@@ -124,7 +120,7 @@ int main()
         cout << "Enter the gearbox name: " <<endl;
         cin >> n;
         cout << "Enter the gearbox ratio: " <<endl;
-        rat = checkValidation(0,1);
+        rat = checkValidation(0,inf);
         cout << "Enter the gearbox effeciency:" <<endl;
         e = checkValidation(0,100);
         if(e > 1){
@@ -137,14 +133,46 @@ int main()
         d = checkValidation(1,inf);
         cout << "Enter the gearbox width  (in millimeter): " <<endl;
         w = checkValidation(1,inf);
-        cout << "Enter the gearbox cost: " <<endl;
-        c = checkValidation(1,inf);
         if(i != number_Gearbox){
             cout << " ////////////////// The next Gearbox ////////////////// " <<endl;
         }
-        Gearbox G1(n,rat,e,m,d,w,c);
+        Gearbox G1(n,rat,e,m,d,w);
         gearboxes.push_back(G1);
     }
+    //searching algorthem
+    vector<MotorGearboxCompination> Good_compinations;
+    for(int i = 0;i<motors.size();++i){
+            for(int j = 0; j<gearboxes.size();++j){
+                if(motors[i].getTorque()*gearboxes[j].get_ratio()*gearboxes[j].get_efficiency() >=link->get_torque_req() &&
+                   //motors[i].getSpeed()/gearboxes[j].get_ratio() >= link->get_speed_req() &&
+                   motors[i].getDiameter() == gearboxes[j].get_diameter()){
+                    Good_compinations.push_back(MotorGearboxCompination(motors[i],gearboxes[j]));
+                }
+            }
+    }
+    //sorting algorthem
+    //(cost)
 
+    for(int j = 0 ; j < Good_compinations.size();++j){
+        for(int i = 1 ; i < Good_compinations.size();++i){
+            MotorGearboxCompination storage;
+            if(Good_compinations[i].get_TotalCost() < Good_compinations[i-1].get_TotalCost()){
+                storage = Good_compinations[i-1];
+                Good_compinations[i-1] = Good_compinations[i];
+                Good_compinations[i] = storage;
+            }}}
+
+    // (weight)
+    for(int j = 0 ; j < Good_compinations.size();++j){
+        for(int i = 1 ; i < Good_compinations.size();++i){
+            MotorGearboxCompination storage;
+            if(Good_compinations[i].get_TotalWeight() < Good_compinations[i-1].get_TotalWeight()){
+                storage = Good_compinations[i-1];
+                Good_compinations[i-1] = Good_compinations[i];
+                Good_compinations[i] = storage;
+            }}}
+        for(int i = 1; i < Good_compinations.size();i++){
+        cout << i <<"-"<<Good_compinations[i].get_Name()<<"//"<<Good_compinations[i].get_TotalCost() << "// " << Good_compinations[i].get_outputTorque()<<endl;
+    }
     return 0;
 }

@@ -6,30 +6,30 @@ using namespace std;
 class Motor
 {
 public:
-
     Motor();
-    Motor(const string& name, double t, double s, double m, double d, double w, double c);
+    Motor(const string& name, float t, float s, float m, float d, float w);
     string getModelName() const;
-    double getTorque() const;
-    double getSpeed() const;
-    double getMass() const;
-    double getDiameter() const;
-    double getWidth() const;
-    double getCost() const;
+    float getTorque() const;
+    float getSpeed() const;
+    float getMass() const;
+    float getDiameter() const;
+    float getWidth() const;
+    float getCost() ;
     void setModelName(const string& name);
-    void setTorque(double t);
-    void setSpeed(double s);
-    void setMass(double m);
-    void setDiameter(double d);
-    void setWidth(double w);
-    void setCost(double c);
+    void setTorque(float t);
+    void setSpeed(float s);
+    void setMass(float m);
+    void setDiameter(float d);
+    void setWidth(float w);
+    void setCost();
+    private:
     string modelName;
-    double torque;
-    double speed;
-    double mass;
-    double diameter;
-    double width;
-    double cost;
+    float torque;
+    float speed;
+    float mass;
+    float diameter;
+    float width;
+    float cost;
 };
 
 

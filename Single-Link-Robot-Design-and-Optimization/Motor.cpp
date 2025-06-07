@@ -5,34 +5,35 @@
 using namespace std;
 
 Motor::Motor(){}
-Motor::Motor(const string& name, double t, double s, double m, double d, double w, double c)
-    : modelName(name), torque(t), speed(s), mass(m), diameter(d), width(w), cost(c) {}
+Motor::Motor(const string& name, float t, float s, float m, float d, float w)
+    : modelName(name), torque(t), speed(s), mass(m), diameter(d), width(w){}
 string Motor::getModelName() const
 {
     return modelName;
 }
-double Motor::getTorque() const
+float Motor::getTorque() const
 {
     return torque;
 }
-double Motor::getSpeed() const
+float Motor::getSpeed() const
 {
     return speed;
 }
-double Motor::getMass() const
+float Motor::getMass() const
 {
     return mass;
 }
-double Motor::getDiameter() const
+float Motor::getDiameter() const
 {
     return diameter;
 }
-double Motor::getWidth() const
+float Motor::getWidth() const
 {
     return width;
 }
-double Motor::getCost() const
+float Motor::getCost()
 {
+    cost = mass + diameter/100 + width/100;
     return cost;
 }
 

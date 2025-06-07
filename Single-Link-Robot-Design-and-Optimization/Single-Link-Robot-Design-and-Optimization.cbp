@@ -44,6 +44,10 @@
 		<Unit filename="Link.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="Motor.cpp" />
+		<Unit filename="Motor.h" />
+		<Unit filename="gear.cpp" />
+		<Unit filename="gear.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="matrials.cpp">
 			<Option target="&lt;{~None~}&gt;" />

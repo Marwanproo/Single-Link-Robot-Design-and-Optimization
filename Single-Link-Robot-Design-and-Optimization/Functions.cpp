@@ -11,13 +11,11 @@ const float PI = 22.0/7.0;
 const float D_Unit = pow(10,-6);
 void checkStress(Matrial& m,Link& l)
 {
-    cout<< m.get_Id()<<endl;
     l.set_mass(m.get_Density());
     l.set_momentOfInertia();
     l.set_bendingMoment();
     l.set_max_stress();
-    cout << "The math" << l.get_mass()<<endl;
-    cout<< "The stress is: "<<l.get_max_stress()<<"    "<<endl;
+    l.set_torque_req();
     if(l.get_max_stress() > m.get_Yieldstrength())
     {
         while(l.get_max_stress() >= m.get_Yieldstrength())
@@ -27,6 +25,7 @@ void checkStress(Matrial& m,Link& l)
             l.set_momentOfInertia();
             l.set_bendingMoment();
             l.set_max_stress();
+            l.set_torque_req();
         }
     }
     else
@@ -38,6 +37,7 @@ void checkStress(Matrial& m,Link& l)
             l.set_momentOfInertia();
             l.set_bendingMoment();
             l.set_max_stress();
+            l.set_torque_req();
         }
     }
     cout << "The final length is: "<< l.get_length()<< " Millimeter"<<endl;
@@ -50,9 +50,10 @@ void checkStress(Matrial& m,Link& l)
     {
         cout << "The final radius is: "<<l.get_radius()<<  " Millimeter"<<endl;
     }
-    cout << "The math:" << l.get_mass()<<endl;
+    cout << "The mass :" << l.get_mass()<<endl;
     cout <<"The max stress is: "<< l.get_max_stress()<<" MPa"<<endl;
 }
+
 auto checkValidation(auto r1, auto r2)
 {
     double var;
