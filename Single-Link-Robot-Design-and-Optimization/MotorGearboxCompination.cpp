@@ -18,8 +18,9 @@ float MotorGearboxCompination::get_outputSpeed() const{
     return motor.getSpeed()/gearbox.get_ratio();
 }
 
-string MotorGearboxCompination::get_Name()const{
-    return ("["+motor.getModelName()+"/"+gearbox.get_name()+"]");
+string MotorGearboxCompination::get_Name(){
+    name = "["+motor.getModelName()+"/"+gearbox.get_name()+"]";
+    return name;
 }
 float MotorGearboxCompination::get_TotalWeight(){
     return motor.getMass()+gearbox.get_mass();

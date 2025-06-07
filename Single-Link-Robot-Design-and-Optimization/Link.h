@@ -30,7 +30,7 @@ class Link{
         void set_bendingMoment();
         void set_max_stress();
         void set_torque_req();
-        void set_speed_req();
+        void set_speed_req(float s);
     private:
         float length;
         float high;

@@ -46,6 +46,8 @@
 		</Unit>
 		<Unit filename="Motor.cpp" />
 		<Unit filename="Motor.h" />
+		<Unit filename="MotorGearboxCompination.cpp" />
+		<Unit filename="MotorGearboxCompination.h" />
 		<Unit filename="gear.cpp" />
 		<Unit filename="gear.h" />
 		<Unit filename="main.cpp" />

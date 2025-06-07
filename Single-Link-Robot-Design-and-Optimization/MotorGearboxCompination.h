@@ -13,8 +13,9 @@ class MotorGearboxCompination{
         float get_TotalCost() ;
         float get_outputSpeed() const;
         float get_TotalWeight() ;
-        string get_Name() const;
+        string get_Name();
     private:
+        string name;
         Motor motor;
         Gearbox gearbox;
 };

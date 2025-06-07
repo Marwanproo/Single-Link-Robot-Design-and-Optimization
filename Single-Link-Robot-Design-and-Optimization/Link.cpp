@@ -41,6 +41,9 @@ float Link::get_max_stress() const{
 float Link::get_torque_req()const{
     return torque_req;
 }
+float Link::get_speed_req()const{
+    return speed_req;
+}
 void Link::set_length(float l){
     length = l;
 }
@@ -121,9 +124,9 @@ void Link::set_max_stress(){
 void Link::set_torque_req(){
     torque_req = (mass*g*length/2)+(payload_m*g*length)+(mass*pow(length/2,2)*max_angular_acc)+(payload_m*pow(length,2)*max_angular_acc);
 }
-/*void Link::set_speed_req()const{
-    //speed_req =
-}*/
+void Link::set_speed_req(float s){
+    speed_req = s;
+}
 
 
 

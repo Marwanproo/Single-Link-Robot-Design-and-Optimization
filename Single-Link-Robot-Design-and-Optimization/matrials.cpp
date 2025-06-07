@@ -37,14 +37,7 @@ void Matrial::set_Density(float d){
 void Matrial::set_Id(int id){
     Id = id ;
 }
-bool Matrial::check_material() const{
-    bool valid = false;
-    if(Yieldstrength <= 0 || Density <= 0){
-        cout << "Not valid parameter.." <<endl;
-        valid = true;
-        }
-        return valid;
-}
+
 // materials data base
 Matrial materials[10]={
     Matrial("Cast iron",130,7.3,1),

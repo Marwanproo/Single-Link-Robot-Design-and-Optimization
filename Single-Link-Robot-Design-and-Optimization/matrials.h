@@ -19,7 +19,6 @@ class Matrial {
         void set_Yieldstrength(float y);
         void set_Density(float d);
         void set_Id(int id);
-        bool check_material() const;
     private:
         string Name;
         float Yieldstrength;
