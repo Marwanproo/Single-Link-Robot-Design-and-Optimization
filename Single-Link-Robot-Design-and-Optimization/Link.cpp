@@ -219,7 +219,7 @@ void Link::reduce_Circle_area(){
 }
 void Link::reduce_Rectangle_area(){
     if(high > 0 && width > 0){
-        high -= high*0.1;
+        high -= high*0.01;
         width -= width*0.01;
     }
 }
