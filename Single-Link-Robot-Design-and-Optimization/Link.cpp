@@ -151,10 +151,10 @@ void Link::reduce_Rectangle_volume(Matrial& m)
 
     if(high >0 && width > 0){
     if(width*pow(high,2) > 6*bendingMoment/m.get_Yieldstrength() && length > high && length > width){
-        length += length*0.001;
+        length += length*0.01;
         high -= (0.001 * high) ;
         width -= (0.001 * width);
-    }else if(length > high && length > width){
+    }else if(length < high && length< width){
 
         high -= (0.01 * high) ;
         width -= (0.01 * width);
@@ -167,11 +167,10 @@ void Link::reduce_Circle_volume(Matrial& m)
 {
     if(radius > 0){
    if(pow(radius,3) > 4*bendingMoment/PI*m.get_Yieldstrength() && radius < length){
-        length += length*0.001;
+        length += length*0.01;
         radius -= (0.001 * high) ;
-    }else if(length > high && length > width){
-
-        radius -= (0.01 * high) ;
+    }else if(radius < length){
+        radius -= (0.001 * high) ;
     }}
 
 }
@@ -196,7 +195,6 @@ void Link::increase_Circle_volume(Matrial& m){
         length -= length*0.01;
         radius += (0.001 * high) ;
     }else if(length > high && length > width){
-
         radius += (0.001 * high) ;
     }}
 }

@@ -15,7 +15,7 @@ void presentingMaterials(Matrial m[]);
 Matrial selectingMaterial(Matrial m[]);
 void setMotorsDatabase(vector<Motor>& m);
 void setGearboxDatabase(vector<Gearbox>& g);
-void searching(vector<MotorGearboxCompination>& mg,vector<Motor>& m,vector<Gearbox>& g,float req_torque,float req_speed);
+void searching(vector<MotorGearboxCompination>& mg,vector<Motor>& m,vector<Gearbox>& g,float& req_torque,float& req_speed);
 void sorting(vector<MotorGearboxCompination>& mg, int i);
 int selection_Crossection();
 #endif // FUNCTIONS_H_INCLUDED

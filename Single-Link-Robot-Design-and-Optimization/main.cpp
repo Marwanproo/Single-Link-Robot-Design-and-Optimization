@@ -10,13 +10,19 @@
 #include "Motor.h"
 #include "gear.h"
 #include "MotorGearboxCompination.h"
+
 using namespace std;
+
+
+
+
+
 int main()
 {
     Link link(0,0,0,0,0);
     Matrial Selected_material;
     //selecting crossSection
-    int cross_section;
+    /*int cross_section;
     cross_section = selection_Crossection();
     // presenting the materials
     presentingMaterials(materials);
@@ -32,17 +38,41 @@ int main()
     cout <<"\nPlease enter the speed(rad/s) ...";
     link.set_speed_req(checkValidation(1,inf));
     // stress calculations
-    checkStress(Selected_material,link);
+    checkStress(Selected_material,link);*/
     // -------------------- Part 2 ----------------------------
+    vector<Motor> motors = {
+Motor ("m1",2.22/1000,4530.0,21.0/1000,16,25.4),
+Motor ("m2",2.17/1000,6660.0,21.0/1000,16,25.4),
+Motor ("m3",3.59/1000,4000.0,33.0/1000,19,28.9),
+Motor ("m4",3.49/1000,6510.0,33.0/1000,19,28.9),
+Motor ("m5",5.03/1000,8070.0,117.0/1000,26,44.7),
+Motor ("m6",13.7/1000,5310.0,117.0/1000,26,44.7),
+Motor ("m7",6.19/1000,5150.0,26.0/1000,14,35.6),
+Motor ("m8",6.34/1000,5220.0,26.0/1000,14,35.6),
+Motor ("m9",4.81/1000,7440.0,54.0/1000,22,31.9),
+Motor ("m10",6.24/1000,7770.0,54.0/1000,22,31.9),
+};
+vector<Gearbox> gearboxes= {
+Gearbox ("g1",19,81,23/1000,16,19.1),
+Gearbox ("g2",84,73,27/1000,16,22.7),
+Gearbox ("g3",24,81,31/1000,19,19.5),
+Gearbox ("g4",84,73,36/1000,19,23.1),
+Gearbox ("g5",27,80,77/1000,26,32.9),
+Gearbox ("g6",71,70,93/1000,26,39.5),
+Gearbox ("g7",103,75,21/1000,14,25.5),
+Gearbox ("g8",243,65,23/1000,14,30.3),
+Gearbox ("g9",84,59,68/1000,22,36.2),
+Gearbox ("g10",370,49,81/1000,22,43),
+};
 //Motors DataBase
-    vector<Motor> motors;
-    setMotorsDatabase(motors);
+    //vector<Motor> motors;
+    //setMotorsDatabase(motors);
 // GearBoxes Database
-    vector<Gearbox> gearboxes;
-    setGearboxDatabase(gearboxes);
+    //vector<Gearbox> gearboxes;
+    //setGearboxDatabase(gearboxes);
     //searching algorthem
     vector<MotorGearboxCompination> Good_compinations;
-    searching(Good_compinations,motors,gearboxes,link.get_torque_req(),link.get_speed_req());
+    searching(Good_compinations,motors,gearboxes,100.01,200.02);
     //sorting algorthem
     cout << "Please enter 1 to minimize cost or 2 to minimize weight " <<endl;
     int min_selector;

@@ -1,7 +1,6 @@
 #ifndef MOTORS_H_INCLUDED
 #define MOTORS_H_INCLUDED
-#include <string>
-#include <vector>
+
 using namespace std;
 class Motor
 {

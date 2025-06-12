@@ -1,8 +1,7 @@
 
 #ifndef GEARBOX_H_INCLUDED
 #define GEARBOX_H_INCLUDED
-#include <string>
-#include <vector>
+
 
 
 using namespace std;

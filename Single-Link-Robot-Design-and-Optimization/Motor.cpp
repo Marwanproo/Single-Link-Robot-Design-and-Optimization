@@ -37,3 +37,4 @@ float Motor::getCost()
     return cost;
 }
 
+
