@@ -32,6 +32,7 @@ int main(){
     checkStress(Selected_material,*link);
     // -------------------- Part 2 ----------------------------
 //Motors DataBase
+
     vector<Motor> motors;
     setMotorsDatabase(motors);
 // GearBoxes Database

@@ -24,6 +24,7 @@ public:
     void set_diameter(float d);
     void set_width(float w);
     void set_cost();
+    vector<Gearbox> gearboxes;
 private:
     string name;
     float _ratio;

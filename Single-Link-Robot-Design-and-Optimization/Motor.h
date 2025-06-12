@@ -22,6 +22,7 @@ public:
     void setDiameter(float d);
     void setWidth(float w);
     void setCost();
+    vector<Motor> motors ;
     private:
     string modelName;
     float torque;

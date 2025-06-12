@@ -85,3 +85,89 @@
 	<vector>
 	"Link.h"
 
+1749762686 source:c:\users\user\mypro\single-link-robot-design-and-optimization\gear.cpp
+	<iostream>
+	<vector>
+	<cmath>
+	"gear.h"
+
+1749762623 c:\users\user\mypro\single-link-robot-design-and-optimization\gear.h
+	<string>
+	<vector>
+
+1749762686 source:c:\users\user\mypro\single-link-robot-design-and-optimization\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"matrials.h"
+	"matrials.cpp"
+	"Functions.h"
+	"Functions.cpp"
+	"Link.h"
+	"Link.cpp"
+	"Motor.h"
+	"gear.h"
+	"MotorGearboxCompination.h"
+	<algorithm>
+
+1749672603 c:\users\user\mypro\single-link-robot-design-and-optimization\matrials.h
+	<iostream>
+	<string>
+	<vector>
+
+1749672603 c:\users\user\mypro\single-link-robot-design-and-optimization\matrials.cpp
+	<iostream>
+	<string>
+	<vector>
+	"matrials.h"
+	<stdio.h>
+
+1749672603 c:\users\user\mypro\single-link-robot-design-and-optimization\functions.h
+	<iostream>
+	<string>
+	<vector>
+	"Link.h"
+	"matrials.h"
+	"Motor.h"
+	"gear.h"
+	"MotorGearboxCompination.h"
+
+1749672603 c:\users\user\mypro\single-link-robot-design-and-optimization\link.h
+
+1749762878 c:\users\user\mypro\single-link-robot-design-and-optimization\motor.h
+	<string>
+	<vector>
+
+1749672603 c:\users\user\mypro\single-link-robot-design-and-optimization\motorgearboxcompination.h
+	<string>
+	<vector>
+	"Motor.h"
+	"gear.h"
+
+1749759998 c:\users\user\mypro\single-link-robot-design-and-optimization\functions.cpp
+	<iostream>
+	<string>
+	<vector>
+	<cmath>
+	"Link.h"
+	"matrials.h"
+	<limits>
+
+1749672603 c:\users\user\mypro\single-link-robot-design-and-optimization\link.cpp
+	<iostream>
+	<string>
+	<vector>
+	"Link.h"
+
+1749762491 source:c:\users\user\mypro\single-link-robot-design-and-optimization\motor.cpp
+	<iostream>
+	<string>
+	<vector>
+	"Motor.h"
+
+1749672603 source:c:\users\user\mypro\single-link-robot-design-and-optimization\motorgearboxcompination.cpp
+	<iostream>
+	<string>
+	<vector>
+	"MotorGearboxCompination.h"
+
