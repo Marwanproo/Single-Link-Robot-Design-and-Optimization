@@ -17,6 +17,8 @@ public:
     //compute(motor mass + gearbox mass) and return the total mass.
     float get_TotalWeight() ;
     string get_Name();
+    void get_Motor_data();
+    void get_Gearbox_data();
 private:
     string name;
     Motor motor;

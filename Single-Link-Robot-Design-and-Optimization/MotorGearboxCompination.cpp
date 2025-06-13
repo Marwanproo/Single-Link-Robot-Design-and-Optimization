@@ -32,4 +32,21 @@ float MotorGearboxCompination::get_TotalWeight()
     return motor.getMass()+gearbox.get_mass();
 }
 
-
+void MotorGearboxCompination::get_Motor_data()
+{
+        cout <<  motor.getTorque()
+     <<motor.getSpeed()
+    <<motor.getMass()
+    <<motor.getDiameter()
+    <<motor.getWidth()
+    <<motor.getCost()<<endl;
+}
+void MotorGearboxCompination::get_Gearbox_data()
+{
+    cout << gearbox.get_name()
+    <<gearbox.get_ratio()
+    <<gearbox.get_efficiency()
+    <<gearbox.get_cost()
+    <<gearbox.get_diameter()
+    <<gearbox.get_mass()<<endl;
+}

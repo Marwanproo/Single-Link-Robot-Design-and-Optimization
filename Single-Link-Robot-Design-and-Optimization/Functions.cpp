@@ -82,7 +82,7 @@ void checkStress(Matrial& m,Link& l)
         l.resetlink(m.get_Density());
     }
 
-    while(l.get_max_stress() < m.get_Yieldstrength()*0.98)
+    while(l.get_max_stress() <= m.get_Yieldstrength())
     {
         l.reduce_Circle_area();
         l.reduce_Rectangle_area();
@@ -285,6 +285,8 @@ void sorting(vector<MotorGearboxCompination>& mg,int i)
     if(mg.size() >= 1)
         {
             cout << "The best motor and gearbox combination is " <<mg[0].get_Name()<<endl;
+            mg[0].get_Motor_data();
+            mg[0].get_Gearbox_data();
         }
 }
 
