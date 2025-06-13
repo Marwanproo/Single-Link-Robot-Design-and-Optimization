@@ -2,44 +2,57 @@
 #include <string>
 #include <vector>
 #include "matrials.h"
+#include "Motor.h"
+#include "gear.h"
 #include <stdio.h>
 using namespace std;
 
-Matrial::Matrial(){
+Matrial::Matrial()
+{
     Name=" ";
     Yieldstrength=0;
     Density=0;
     Id=0;
 }
 Matrial::Matrial(string name,float yieldstrength,float density,int id)
-: Name(name), Yieldstrength(yieldstrength), Density(density) , Id(id){}
-string Matrial::get_Name() const{
+    : Name(name), Yieldstrength(yieldstrength), Density(density), Id(id) {}
+string Matrial::get_Name() const
+{
     return Name;
 }
-float Matrial::get_Yieldstrength() const{
+float Matrial::get_Yieldstrength() const
+{
     return Yieldstrength;
 }
-float Matrial::get_Density() const{
+float Matrial::get_Density() const
+{
     return Density;
 }
-int Matrial::get_Id() const{
+int Matrial::get_Id() const
+{
     return Id;
 }
-void Matrial::set_Name(string n){
+void Matrial::set_Name(string n)
+{
     Name = n;
 }
-void Matrial::set_Yieldstrength(float y){
+void Matrial::set_Yieldstrength(float y)
+{
     Yieldstrength = y;
 }
-void Matrial::set_Density(float d){
+void Matrial::set_Density(float d)
+{
     Density = d;
 }
-void Matrial::set_Id(int id){
+void Matrial::set_Id(int id)
+{
     Id = id ;
 }
 
 // materials data base
-Matrial materials[10]={
+
+Matrial materials[10]=
+{
     Matrial("Cast iron",130,7.3,1),
     Matrial("copper nickel",130,8.94,2),
     Matrial("Brass",200,8.73,3),
@@ -50,9 +63,7 @@ Matrial materials[10]={
     Matrial("Stainless steel",275,7.86,8),
     Matrial("Tungsten",941,19.25,9),
     Matrial()
-    };
-
-
+};
 
 
 

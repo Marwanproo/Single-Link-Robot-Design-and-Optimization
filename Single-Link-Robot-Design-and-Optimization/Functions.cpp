@@ -14,6 +14,7 @@ const double inf = 1.0 / 0.0;
 const float Nmm_NM = pow(10,-3);
 const float mNM_NM = pow(10,-3);
 const float g_Kg = pow(10,-3);
+
 auto checkValidation(auto r1, auto r2)
 {
     double var;
@@ -48,12 +49,12 @@ void setInitialDimintions(Link& l,int& shape_selector)
     {
         if (shape_selector == 1)
         {
-            cout <<"please enter the initial dimensions (in millimeter)."<<endl;
+            cout <<"please enter the initial dimensions (in millimeter)."<<endl<<endl;
             cout <<"the length:";
             l.set_length(checkValidation(1,inf));
-            cout <<"the height:";
+            cout <<endl<<"the height:";
             l.set_high(checkValidation(1,inf));
-            cout <<"the width:";
+            cout <<endl<<"the width:";
             l.set_width(checkValidation(1,inf));
         }
         else if (shape_selector == 2 )
@@ -61,90 +62,78 @@ void setInitialDimintions(Link& l,int& shape_selector)
             cout <<"please enter the initial dimensions (in millimeter)"<<endl;
             cout <<"the length:";
             l.set_length(checkValidation(1,inf));
-            cout <<"the radius:";
+            cout <<endl<<"the radius:";
             l.set_radius(checkValidation(1,inf));
         }
     }
     while(l.check_Link());
 }
+
 void checkStress(Matrial& m,Link& l)
 {
     float initial_height = l.get_high();
     float initial_width = l.get_width();
     float initial_radius = l.get_radius();
-    l.set_mass(m.get_Density());
-    l.set_momentOfInertia();
-    l.set_bendingMoment();
-    l.set_max_stress();
-    l.set_torque_req();
+    l.resetlink(m.get_Density());
     while(l.get_max_stress() >= m.get_Yieldstrength())
     {
         l.increase_Circle_area();
         l.increase_Rectangle_area();
-        l.set_mass(m.get_Density());
-        l.set_momentOfInertia();
-        l.set_bendingMoment();
-        l.set_max_stress();
-        l.set_torque_req();
+        l.resetlink(m.get_Density());
     }
 
-    while(l.get_max_stress() < m.get_Yieldstrength()*0.98)
+    while(l.get_max_stress() < m.get_Yieldstrength())
     {
         l.reduce_Circle_area();
         l.reduce_Rectangle_area();
-        l.set_mass(m.get_Density());
-        l.set_momentOfInertia();
-        l.set_bendingMoment();
-        l.set_max_stress();
-        l.set_torque_req();
+        l.resetlink(m.get_Density());
     }
-    if(l.get_high() >= l.get_length() || l.get_width() >= l.get_length() || l.get_radius() >= l.get_length())
+    if(l.check_Link())
     {
         l.set_high(initial_height);
         l.set_width(initial_width);
         l.set_radius(initial_radius);
-        l.set_mass(m.get_Density());
-        l.set_momentOfInertia();
-        l.set_bendingMoment();
-        l.set_max_stress();
-        l.set_torque_req();
+        l.resetlink(m.get_Density());
         while(l.get_max_stress() >= m.get_Yieldstrength())
         {
-            l.increase_Circle_volume(m);
-            l.increase_Rectangle_volume(m);
+            l.increase_Circle_volume(m.get_Yieldstrength());
+            l.increase_Rectangle_volume(m.get_Yieldstrength());
+            l.resetlink(m.get_Density());
         }
         while(l.get_max_stress() < m.get_Yieldstrength())
         {
-            l.reduce_Circle_volume(m);
-            l.reduce_Rectangle_volume(m);
+            l.reduce_Circle_volume(m.get_Yieldstrength());
+            l.reduce_Rectangle_volume(m.get_Yieldstrength());
+            l.resetlink(m.get_Density());
         }
     }
-    cout << "The final length is: "<< l.get_length()<< " millimeter"<<endl;
+    cout << "The final length is: "<< l.get_length()<< " millimeter"<<endl<<endl;
     if(l.get_radius()==0.0)
     {
-        cout << "The final height is: "<< l.get_high()<< " millimeter"<<endl;
-        cout << "The final width is: "<<l.get_width()<< " millimeter"<<endl;
+        cout << "The final height is: "<< l.get_high()<< " millimeter"<<endl<<endl;
+        cout << "The final width is: "<<l.get_width()<< " millimeter"<<endl<<endl;
     }
     else
-        cout << "The final radius is: "<<l.get_radius()<<  " millimeter"<<endl;
+        cout << "The final radius is: "<<l.get_radius()<<  " millimeter"<<endl<<endl;
     //}
-    cout << "The mass :" << l.get_mass()<<endl;
+    cout << "The mass of the link is: " << l.get_mass()<< " kg" <<endl<<endl;
     cout <<"The max stress is: "<< l.get_max_stress()<<" MPa "<<endl;
-    cout << "the required torque is: " << l.get_torque_req()*Nmm_NM<<" N.M "<<endl;
-    cout <<"the moment of inirtia is; "<<l.get_momentOfInertia()<<endl;
-    cout << "bending moment" << l.get_bendingMoment()<<endl;
+    cout << "--------------------------------------------------------------------" << endl;
+
 }
+
 void presentingMaterials(Matrial m[])
 {
-    cout << "please select a material from the data shown enter (10) to add a new material\n";
+    cout << "please select a material from the data shown [Enter 10 to add a new material]:-\n\n";
     int length = (sizeof(m) / sizeof(m[0]));
     for(int i=0;  i < 9; i++)
     {
         cout <<"("<< m[i].get_Id()<<")"<< " --> "
-             <<m[i].get_Name() << " Yield strength: "<< m[i].get_Yieldstrength()<< "(MPa)"
+             <<m[i].get_Name() << " --> Yield strength is : "<< m[i].get_Yieldstrength()<< "(MPa)"
              << " , Density is: " <<  m[i].get_Density() << "(g/cm^3)"<<endl;
     }
 }
+
 Matrial selectingMaterial(Matrial m[])
 {
     int material_Selector;
@@ -240,31 +229,30 @@ void searching(vector<MotorGearboxCompination>& mg,vector<Motor>& m,vector<Gearb
 {
     for(int i = 0; i<m.size(); ++i)
     {
-        for(int j = 0; j<g.size(); ++j)
+        for(int j = 0; j<g.size(); j++)
         {
             if(m[i].getTorque()*g[j].get_ratio()*g[j].get_efficiency() >= req_torque &&
                     m[i].getSpeed()/g[j].get_ratio() >= req_speed &&
-                    m[i].getDiameter() <= g[j].get_diameter())
+                    m[i].getDiameter() <= g[i].get_diameter()
+              )
             {
                 mg.push_back(MotorGearboxCompination(m[i],g[j]));
             }
         }
     }
-    for (int i =0 ; i <= mg.size() ; i++ )
+    if ( mg.size() == 0)
     {
-        cout << mg[i].get_Name() <<endl;
+        cout << "No Combination valid" <<endl;
     }
 }
 void sorting(vector<MotorGearboxCompination>& mg,int i)
 {
-    int min_selector = i;
-    min_selector = checkValidation(1,2);
-    if (min_selector = 1)
+    if (i == 1 && mg.size() > 1)
     {
         //cost
-        for(int j = 0 ; j < mg.size(); ++j)
+        for(int j = 0 ; j < mg.size(); j++)
         {
-            for(int i = 1 ; i < mg.size(); ++i)
+            for(int i = 1 ; i < mg.size(); i++)
             {
                 MotorGearboxCompination storage;
                 if(mg[i].get_TotalCost() < mg[i-1].get_TotalCost())
@@ -275,13 +263,8 @@ void sorting(vector<MotorGearboxCompination>& mg,int i)
                 }
             }
         }
-        for (int i =0 ; i <= mg.size() ; i++ )
-        {
-            cout << mg[i].get_Name()<< mg[i].get_TotalCost()<<endl;
-        }
-        cout <<"The best motor and gearbox combination is "<<mg[0].get_Name()<<endl;
     }
-    else
+    else if(i == 2 && mg.size() > 1)
     {
         // (weight)
         for(int j = 0 ; j < mg.size(); ++j)
@@ -297,14 +280,25 @@ void sorting(vector<MotorGearboxCompination>& mg,int i)
                 }
             }
         }
-        for (int i =0 ; i <= mg.size() ; i++ )
-        {
-            cout << mg[i].get_Name()<<mg[i].get_TotalWeight()<<endl;
-        }
-        cout << "The best motor and gearbox combination is " <<mg[0].get_Name()<<endl;
     }
+    if(mg.size() >= 1)
+        {
+            cout << "The best motor and gearbox combination is " <<mg[0].get_Name()<<endl;
+        }
 }
+void s_dim(Link& l)
+{
+    cout << "The safe dimension are: \n\n" << "The length is: "<< l.get_length()<< " millimeter"<<endl<<endl;
+    if(l.get_radius()==0.0)
+    {
+        cout << "The height is: "<< l.get_high()<< " millimeter"<<endl<<endl;
+        cout << "The width is: "<<l.get_width()<< " millimeter"<<endl<<endl;
+    }
+    else
+        cout << "The radius is: "<<l.get_radius()<<  " millimeter"<<endl<<endl;
+    //}
 
+}
 
 
 

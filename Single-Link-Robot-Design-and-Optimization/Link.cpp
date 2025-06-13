@@ -139,87 +139,145 @@ void Link::set_max_stress()
 void Link::set_torque_req()
 {
     torque_req = ((mass*g*length*0.5)+(payload_m*g*length)
-                     + (mass*pow((length*0.5),2)*max_angular_acc)+(payload_m*pow(length,2)*max_angular_acc));
+                  + (mass*pow((length*0.5),2)*max_angular_acc)+(payload_m*pow(length,2)*max_angular_acc));
 }
 void Link::set_speed_req(float s)
 {
     speed_req = s;
 }
 
-void Link::reduce_Rectangle_volume(Matrial& m)
+void Link::reduce_Rectangle_volume(float y_s)
 {
 
-    if(high >0 && width > 0){
-    if(width*pow(high,2) > 6*bendingMoment/m.get_Yieldstrength() && length > high && length > width){
-        length += length*0.01;
-        high -= (0.001 * high) ;
-        width -= (0.001 * width);
-    }else if(length < high && length< width){
+    if(high >0 && width > 0)
+    {
+        if(width*pow(high,2) > 6*bendingMoment/y_s && length > high && length > width)
+        {
+            length += length*0.01;
+            high -= (0.001 * high) ;
+            width -= (0.001 * width);
+        }
+        else if(length < high && length< width)
+        {
 
-        high -= (0.01 * high) ;
-        width -= (0.01 * width);
-    }}
+            high -= (0.01 * high) ;
+            width -= (0.01 * width);
+        }
+    }
 
 
 }
 
-void Link::reduce_Circle_volume(Matrial& m)
+void Link::reduce_Circle_volume(float y_s)
 {
-    if(radius > 0){
-   if(pow(radius,3) > 4*bendingMoment/PI*m.get_Yieldstrength() && radius < length){
-        length += length*0.01;
-        radius -= (0.001 * high) ;
-    }else if(radius < length){
-        radius -= (0.001 * high) ;
-    }}
+    if(radius > 0)
+    {
+        if(pow(radius,3) > 4*bendingMoment/PI*y_s && radius < length)
+        {
+            length += length*0.01;
+            radius -= (0.001 * high) ;
+        }
+        else if(radius < length)
+        {
+            radius -= (0.001 * high) ;
+        }
+    }
 
 }
 
-void Link::increase_Rectangle_volume(Matrial& m)
+void Link::increase_Rectangle_volume(float y_s)
 {
-    if(high > 0 && width > 0){
-    if(width*pow(high,2) < 6*bendingMoment/m.get_Yieldstrength() && length > high && length > width){
-        length -= length*0.01;
-        high += (0.001 * high) ;
-        width += (0.001 * width);
-    }else if(length > high && length > width){
-        high += (0.001 * high) ;
-        width += (0.001 * width);
-    }}
+    if(high > 0 && width > 0)
+    {
+        if(width*pow(high,2) < 6*bendingMoment/y_s && length > high && length > width)
+        {
+            length -= length*0.01;
+            high += (0.001 * high) ;
+            width += (0.001 * width);
+        }
+        else if(length > high && length > width)
+        {
+            high += (0.001 * high) ;
+            width += (0.001 * width);
+        }
+    }
 }
 
 
-void Link::increase_Circle_volume(Matrial& m){
-    if(radius > 0){
-   if(pow(radius,3) < 4*bendingMoment/PI*m.get_Yieldstrength() && radius < length){
-        length -= length*0.01;
-        radius += (0.001 * high) ;
-    }else if(length > high && length > width){
-        radius += (0.001 * high) ;
-    }}
+void Link::increase_Circle_volume(float y_s)
+{
+    if(radius > 0)
+    {
+        if(pow(radius,3) < 4*bendingMoment/PI*y_s && radius < length)
+        {
+            length -= length*0.01;
+            radius += (0.001 * high) ;
+        }
+        else if(length > high && length > width)
+        {
+            radius += (0.001 * high) ;
+        }
+    }
 }
-void Link::increase_Rectangle_area(){
-    if(high > 0 && width > 0){
+void Link::increase_Rectangle_area()
+{
+    if(high > 0 && width > 0)
+    {
         high += high*0.01;
         width += width*0.01;
     }
 }
-void Link::increase_Circle_area(){
-    if(radius > 0 ){
+void Link::increase_Circle_area()
+{
+    if(radius > 0 )
+    {
         radius += radius*0.01;
     }
 }
 
-void Link::reduce_Circle_area(){
-    if(radius > 0){
+void Link::reduce_Circle_area()
+{
+    if(radius > 0)
+    {
         radius -= radius*0.01;
     }
 }
-void Link::reduce_Rectangle_area(){
-    if(high > 0 && width > 0){
+void Link::reduce_Rectangle_area()
+{
+    if(high > 0 && width > 0)
+    {
         high -= high*0.01;
         width -= width*0.01;
     }
+}
+void Link::resetlink(float d)
+{
+    //mass & momentOfInertia
+    if(radius == 0 )
+    {
+        mass = (d*D_Unit*length*high*width);
+        momentOfInertia = ((width*pow(high,3))/12);
+    }
+    if(high == 0 && width == 0)
+    {
+        mass = d*D_Unit*length*pow(radius,2)*PI;
+        momentOfInertia = (PI*pow(radius,4))/4;
+    }
+    //bendingmoment & torque
+    bendingMoment = ((mass*g*length*0.5)+(payload_m*g*length)
+                     + (mass*pow((length*0.5),2)*max_angular_acc)+(payload_m*pow(length,2)*max_angular_acc));
+    torque_req = ((mass*g*length*0.5)+(payload_m*g*length)
+                  + (mass*pow((length*0.5),2)*max_angular_acc)+(payload_m*pow(length,2)*max_angular_acc));
+    //max stress
+    if (radius==0.0)
+    {
+        max_stress = (bendingMoment*high)/(2.0*momentOfInertia);
+    }
+    else
+    {
+        max_stress = (bendingMoment*radius)/(momentOfInertia);
+    }
+
 }
 
 

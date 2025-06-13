@@ -5,7 +5,8 @@
 
 
 using namespace std;
-class Gearbox {
+class Gearbox
+{
 public:
     Gearbox();
     Gearbox(string n, float r, float e, float m, float d, float w);
@@ -23,7 +24,6 @@ public:
     void set_diameter(float d);
     void set_width(float w);
     void set_cost();
-    vector<Gearbox> gearboxes;
 private:
     string name;
     float _ratio;

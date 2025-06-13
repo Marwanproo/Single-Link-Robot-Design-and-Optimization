@@ -5,19 +5,22 @@
 #include "Motor.h"
 #include "gear.h"
 using namespace std;
-class MotorGearboxCompination{
-    public:
-        MotorGearboxCompination();
-        MotorGearboxCompination(Motor m,Gearbox g);
-        float get_outputTorque() const;
-        float get_TotalCost() ;
-        float get_outputSpeed() const;
-        float get_TotalWeight() ;
-        string get_Name();
-    private:
-        string name;
-        Motor motor;
-        Gearbox gearbox;
+class MotorGearboxCompination
+{
+public:
+    MotorGearboxCompination();
+    MotorGearboxCompination(Motor m,Gearbox g);
+    float get_outputTorque() const;
+    //compute(motor cost + gearbox cost) and return the total cost.
+    float get_TotalCost() ;
+    float get_outputSpeed() const;
+    //compute(motor mass + gearbox mass) and return the total mass.
+    float get_TotalWeight() ;
+    string get_Name();
+private:
+    string name;
+    Motor motor;
+    Gearbox gearbox;
 };
 
 

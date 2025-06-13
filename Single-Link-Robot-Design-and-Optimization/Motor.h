@@ -21,8 +21,7 @@ public:
     void setDiameter(float d);
     void setWidth(float w);
     void setCost();
-    vector<Motor> motors ;
-    private:
+private:
     string modelName;
     float torque;
     float speed;
