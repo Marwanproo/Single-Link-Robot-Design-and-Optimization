@@ -4,9 +4,9 @@
 #include "Motor.h"
 using namespace std;
 
-Motor::Motor(){}
+Motor::Motor() {}
 Motor::Motor(const string& name, float t, float s, float m, float d, float w)
-    : modelName(name), torque(t), speed(s), mass(m), diameter(d), width(w){}
+    : modelName(name), torque(t), speed(s), mass(m), diameter(d), width(w) {}
 string Motor::getModelName() const
 {
     return modelName;

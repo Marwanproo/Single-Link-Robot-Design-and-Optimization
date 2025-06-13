@@ -21,7 +21,7 @@ public:
     void setDiameter(float d);
     void setWidth(float w);
     void setCost();
-    private:
+private:
     string modelName;
     float torque;
     float speed;

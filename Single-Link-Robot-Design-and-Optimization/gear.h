@@ -5,7 +5,8 @@
 
 
 using namespace std;
-class Gearbox {
+class Gearbox
+{
 public:
     Gearbox();
     Gearbox(string n, float r, float e, float m, float d, float w);

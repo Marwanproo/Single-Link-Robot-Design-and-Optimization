@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1749767737 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\gear.cpp
+1749845368 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\gear.cpp
 	<iostream>
 	<vector>
 	<cmath>
 	"gear.h"
 
-1749769132 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\gear.h
+1749845368 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\gear.h
 
-1749769241 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\main.cpp
+1749846557 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\main.cpp
 	<iostream>
 	<string>
 	<vector>
@@ -20,20 +20,25 @@
 	"Motor.h"
 	"gear.h"
 	"MotorGearboxCompination.h"
+	"Database.cpp"
 
-1749314560 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.h
+1749845368 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.h
 	<iostream>
 	<string>
 	<vector>
 
-1749768666 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.cpp
+1749845368 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\matrials.cpp
 	<iostream>
 	<string>
 	<vector>
 	"matrials.h"
+	"Motor.h"
+	"gear.h"
 	<stdio.h>
 
-1749762930 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\functions.h
+1749845368 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\motor.h
+
+1749844415 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\functions.h
 	<iostream>
 	<string>
 	<vector>
@@ -43,17 +48,15 @@
 	"gear.h"
 	"MotorGearboxCompination.h"
 
-1749761370 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\link.h
+1749845074 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\link.h
 
-1749767344 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\motor.h
-
-1749318115 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\motorgearboxcompination.h
+1749845368 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\motorgearboxcompination.h
 	<string>
 	<vector>
 	"Motor.h"
 	"gear.h"
 
-1749768502 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\functions.cpp
+1749846908 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\functions.cpp
 	<iostream>
 	<string>
 	<vector>
@@ -62,34 +65,36 @@
 	"matrials.h"
 	<limits>
 
-1749766607 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\link.cpp
+1749845368 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\link.cpp
 	<iostream>
 	<string>
 	<vector>
 	"Link.h"
 
-1749766982 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\motor.cpp
+1749815899 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\database.cpp
+	<iostream>
+	<string>
+	<array>
+	"matrials.h"
+	"Motor.h"
+	"gear.h"
+
+1749845368 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\motor.cpp
 	<iostream>
 	<string>
 	<vector>
 	"Motor.h"
 
-1749767565 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\motorgearboxcompination.cpp
+1749845368 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\motorgearboxcompination.cpp
 	<iostream>
 	<string>
 	<vector>
 	"MotorGearboxCompination.h"
 
-1749767804 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\database.cpp
+1749815899 source:c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\database.cpp
 	<iostream>
-	<vector>
-	"matrials.h"
-	"Motor.h"
-	"gear.h"
-
-1749767804 c:\users\hp\my-github\single-link-robot-design-and-optimization\single-link-robot-design-and-optimization\database.cpp
-	<iostream>
-	<vector>
+	<string>
+	<array>
 	"matrials.h"
 	"Motor.h"
 	"gear.h"
