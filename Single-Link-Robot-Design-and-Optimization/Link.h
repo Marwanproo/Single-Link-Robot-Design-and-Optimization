@@ -22,8 +22,6 @@ class Link{
         void set_width(float b) ;
         void set_radius(float r);
         void set_mass(float d);
-        void reduce_dimensions();
-        void increase_dimensions();
         void set_momentOfInertia();
         void set_max_angular_acc(float a);
         void set_payload_m(float m);
@@ -31,6 +29,14 @@ class Link{
         void set_max_stress();
         void set_torque_req();
         void set_speed_req(float s);
+        void increase_Rectangle_volume(Matrial& m);
+        void increase_Circle_volume(Matrial& m);
+        void reduce_Rectangle_volume(Matrial& m);
+        void reduce_Circle_volume(Matrial& m);
+        void increase_Rectangle_area();
+        void increase_Circle_area();
+        void reduce_Circle_area();
+        void reduce_Rectangle_area();
     private:
         float length;
         float high;

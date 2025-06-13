@@ -26,3 +26,4 @@ float MotorGearboxCompination::get_TotalWeight(){
     return motor.getMass()+gearbox.get_mass();
 }
 
+
